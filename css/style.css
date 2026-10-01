@@ -1,0 +1,632 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Aileron";
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("../assets/fonts/Aileron-BoldItalic.woff2") format("woff2"),
+    url("../assets/fonts/Aileron-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("../assets/fonts/Aileron-Heavy.woff2") format("woff2"),
+    url("../assets/fonts/Aileron-Heavy.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("../assets/fonts/Aileron-HeavyItalic.woff2") format("woff2"),
+    url("../assets/fonts/Aileron-HeavyItalic.woff") format("woff");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("../assets/fonts/Aileron-Italic.woff2") format("woff2"),
+    url("../assets/fonts/Aileron-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("../assets/fonts/Aileron-Light.woff2") format("woff2"),
+    url("../assets/fonts/Aileron-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("../assets/fonts/Aileron-LightItalic.woff2") format("woff2"),
+    url("../assets/fonts/Aileron-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("../assets/fonts/Aileron-Regular.woff2") format("woff2"),
+    url("../assets/fonts/Aileron-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("../assets/fonts/Aileron-SemiBold.woff2") format("woff2"),
+    url("../assets/fonts/Aileron-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("../assets/fonts/Aileron-SemiBoldItalic.woff2") format("woff2"),
+    url("../assets/fonts/Aileron-SemiBoldItalic.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("../assets/fonts/Aileron-Thin.woff2") format("woff2"),
+    url("../assets/fonts/Aileron-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("../assets/fonts/Aileron-ThinItalic.woff2") format("woff2"),
+    url("../assets/fonts/Aileron-ThinItalic.woff") format("woff");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("../assets/fonts/Aileron-UltraLight.woff2") format("woff2"),
+    url("../assets/fonts/Aileron-UltraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("Aileron-UltraLightItalic.woff2") format("woff2"),
+    url("Aileron-UltraLightItalic.woff") format("woff");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("../assets/fonts/Aileron-Black.woff2") format("woff2"),
+    url("../assets/fonts/Aileron-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("../assets/fonts/Aileron-BlackItalic.woff2") format("woff2"),
+    url("../assets/fonts/Aileron-BlackItalic.woff") format("woff");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("../assets/fonts/Aileron-Bold.woff2") format("woff2"),
+    url("../assets/fonts/Aileron-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+svg {
+  height: 24px;
+  width: 24px;
+  color: var(--lavender-veil);
+}
+
+svg:hover {
+  background-color: var(--hyper-magenta);
+  padding: 4px;
+  border-radius: 100%;
+}
+
+:root {
+  /* =========================================================
+     1. SPACING
+     Base unit: 4px
+     Range: 0px - 72px
+     ========================================================= */
+
+  --space-0: 0;
+  --space-1: 0.25rem; /* 4px */
+  --space-2: 0.5rem; /* 8px */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem; /* 16px */
+  --space-5: 1.25rem; /* 20px */
+  --space-6: 1.5rem; /* 24px */
+  --space-7: 1.75rem; /* 28px */
+  --space-8: 2rem; /* 32px */
+  --space-9: 2.25rem; /* 36px */
+  --space-10: 2.5rem; /* 40px */
+  --space-11: 2.75rem; /* 44px */
+  --space-12: 3rem; /* 48px */
+  --space-13: 3.25rem; /* 52px */
+  --space-14: 3.5rem; /* 56px */
+  --space-15: 3.75rem; /* 60px */
+  --space-16: 4rem; /* 64px */
+  --space-17: 4.25rem; /* 68px */
+  --space-18: 4.5rem; /* 72px */
+
+  /* =========================================================
+     2. TYPOGRAPHY
+     ========================================================= */
+
+  /* -------------------------
+     Display / Large headings
+     ------------------------- */
+
+  --text-display: clamp(4rem, 8vw, 13.4375rem); /* 64px → 215px */
+
+  --text-h1: 6rem; /* 96px */
+  --text-h2: 4.5rem; /* 72px */
+  --text-h3: 3.5rem; /* 56px */
+  --text-h4: 2.5rem; /* 40px */
+  --text-h5: 2rem; /* 32px */
+  --text-h6: 1.5rem; /* 24px */
+
+  /* -------------------------
+     Responsive large headings
+     Use these when headings
+     need to scale with viewport
+     ------------------------- */
+
+  --text-h1-fluid: clamp(2rem, 5vw, 7rem);
+  --text-h2-fluid: clamp(2.5rem, 5vw, 4.5rem);
+  --text-h3-fluid: clamp(2rem, 4vw, 3.5rem);
+  --text-h4-fluid: clamp(1.75rem, 3vw, 2.5rem);
+
+  /* -------------------------
+     Body
+     ------------------------- */
+
+  --text-body-lg: 1.125rem; /* 18px */
+  --text-body: 1rem; /* 16px */
+  --text-body-sm: 0.875rem; /* 14px */
+
+  /* Caption */
+  --text-caption: 0.75rem; /* 12px */
+
+  /* =========================================================
+     3. BRAND COLORS
+     ========================================================= */
+
+  --lavender-veil: #f4e0fe;
+  --dark-amethyst: #14012d;
+  --thistle: #e8d1fd;
+  --hyper-magenta: #a43efe;
+  --electric-royal: #0b128f;
+
+  /* =========================================================
+     4. NEUTRALS
+     These support the brand colors.
+     ========================================================= */
+
+  --white: #ffffff;
+  --black: #000000;
+
+  --neutral-50: #fcfafd;
+  --neutral-100: #f7f3fa;
+  --neutral-200: #eee8f2;
+  --neutral-300: #ddd4e3;
+  --neutral-400: #b9afc0;
+  --neutral-500: #918697;
+  --neutral-600: #6e6375;
+  --neutral-700: #4c414f;
+  --neutral-800: #302634;
+  --neutral-900: #1b1420;
+
+  /* =========================================================
+     5. BACKGROUNDS
+     ========================================================= */
+
+  --bg-primary: #ffffff;
+  --bg-secondary: var(--neutral-50);
+  --bg-tertiary: var(--lavender-veil);
+
+  --bg-brand: var(--dark-amethyst);
+  --bg-brand-soft: var(--lavender-veil);
+
+  --bg-interactive: var(--hyper-magenta);
+  --bg-interactive-hover: #8f2be5;
+  --bg-interactive-active: #781fc5;
+
+  --bg-accent: var(--electric-royal);
+
+  /* =========================================================
+     6. SURFACES
+     ========================================================= */
+
+  --surface-primary: #ffffff;
+  --surface-secondary: #fcfafd;
+  --surface-tertiary: #f4e0fe;
+
+  --surface-raised: #ffffff;
+  --surface-overlay: rgba(20, 1, 45, 0.04);
+
+  --surface-brand: var(--dark-amethyst);
+  --surface-brand-soft: var(--lavender-veil);
+
+  /* =========================================================
+     7. TEXT
+     ========================================================= */
+
+  --text-primary: var(--dark-amethyst);
+  --text-secondary: #4c414f;
+  --text-tertiary: #6e6375;
+  --text-muted: #918697;
+
+  --text-disabled: #b9afc0;
+
+  --text-inverse: #ffffff;
+
+  --text-brand: var(--hyper-magenta);
+  --text-accent: var(--electric-royal);
+}
+
+header,
+section,
+footer {
+  padding: 0px 60px;
+}
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100000;
+  background-color: var(--bg-primary);
+  filter: drop-shadow(0px 2px 4px var(--thistle));
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: var(--space-4) var(--space-6); */
+  background-color: var(--bg-primary);
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  padding: 16px 0px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.nav-links li {
+  list-style: none;
+}
+
+.nav-links li a {
+  text-decoration: none;
+}
+button {
+  font-family: "Aileron";
+  font-size: var(--text-brand);
+}
+button a {
+  text-decoration: none;
+  color: black;
+}
+.btn-cta {
+  background-color: var(--bg-interactive);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-cta a {
+  color: var(--text-inverse);
+}
+
+.o-cta {
+  /* text-decoration: underline; */
+  background-color: var(--lavender-veil);
+  border: none;
+}
+
+.o-cta:hover {
+  text-decoration: underline;
+  /* font-weight: bold; */
+}
+
+main {
+  background-color: var(--lavender-veil);
+}
+.logo {
+  color: var(--hyper-magenta);
+  letter-spacing: -9%;
+}
+/* Hero Section */
+.hero-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 52px 0px;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.hero-text > h1 {
+  font-size: var(--text-h1-fluid);
+  width: 720px;
+  line-height: 105%;
+}
+
+.hero-text > p {
+  font-size: var(--text-body-lg);
+  width: 600px;
+}
+
+.hero-text-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-self: center;
+}
+
+.hero-btn-cta {
+  display: flex;
+  gap: 8px;
+}
+
+#hero1 {
+  display: block;
+  width: auto;
+  height: 300px;
+}
+/* How section */
+section:nth-child(2) {
+  background-color: var(--bg-primary);
+}
+
+.steps > div {
+  display: flex;
+  gap: 32px;
+}
+
+/* .step1 > div {
+  order: -1;
+} */
+
+.steps > div > div > span {
+  background-color: var(--hyper-magenta);
+  padding: 6px;
+  border-radius: 4px;
+  align-self: start;
+}
+.steps > div > div > div > p {
+  max-width: 220px;
+}
+.step1,
+.step2,
+.step3 {
+  padding-bottom: 32px;
+}
+
+.step-section {
+  padding-top: 52px;
+  padding-bottom: 52px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* .step-caption {
+    font-size: var(--text-caption);
+} */
+.steps-intro-text {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.steps > div > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* features section styling */
+.features-section {
+  padding-top: 52px;
+  padding-bottom: 52px;
+  background-color: var(--dark-amethyst);
+  color: var(--lavender-veil);
+  display: flex;
+  gap: 32px;
+  flex-direction: column;
+}
+.features-caption {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.feature-screens {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  /* gap: 32px; */
+  border: 1px solid var(--lavender-veil);
+  width: 1000px;
+}
+.feature-list {
+  display: flex;
+  border-bottom: 1px solid var(--lavender-veil);
+}
+.features-btn {
+  background-color: var(--dark-amethyst);
+  color: var(--lavender-veil);
+  border: none;
+  border-left: 1px solid white;
+  padding: 8px 16px;
+  width: calc(1000px / 5);
+}
+.features-btn:hover {
+  background-color: var(--lavender-veil);
+  color: var(--dark-amethyst);
+  cursor: pointer;
+  border-bottom: 1px solid var(--dark-amethyst);
+  opacity: 50%;
+}
+.features-btn:focus {
+  background-color: var(--lavender-veil);
+  color: var(--dark-amethyst);
+}
+.features-btn:active {
+  background-color: var(--lavender-veil);
+  color: var(--dark-amethyst);
+}
+.features-btn:nth-child(1) {
+  border-left: none;
+}
+
+.feature-display {
+  display: flex;
+  justify-content: space-between;
+  /* height: 50dvh; */
+  padding: 52px;
+  background-color: var(--lavender-veil);
+  color: var(--dark-amethyst);
+}
+
+.feature-context {
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+}
+.feature-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.feature-text > h4 {
+  text-transform: uppercase;
+  color: var(--text-brand);
+}
+.feature-context button {
+  background-color: var(--hyper-magenta);
+  color: var(--lavender-veil);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.feature-image > img {
+  width: 300px;
+  height: 300px;
+  aspect-ratio: 1/1;
+  border-radius: 10px;
+}
+
+/* newsletter section */
+.newsletter-section {
+  padding-bottom: 52px;
+  padding-top: 52px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.newsletter-text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 8px;
+}
+.form input {
+  border: none;
+  padding: 8px 8px;
+  border-radius: 4px;
+}
+.form button {
+  color: white;
+}
+/* Footer Section Stylings */
+footer {
+  background-color: var(--bg-brand);
+  color: var(--bg-primary);
+}
+footer > div {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  padding: 36px 0px;
+}
+footer > div > div {
+  display: flex;
+  gap: 16px;
+}
