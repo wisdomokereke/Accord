@@ -7,8 +7,7 @@ const feature5 = document.getElementById("feature5");
 const featureDisplay = document.getElementsByClassName("feature-display")[0];
 
 feature1.addEventListener("click", () => {
-    featureDisplay.innerHTML = 
-    `
+  featureDisplay.innerHTML = `
         
             <div class="feature-context">
               <div class="feature-text">
@@ -33,8 +32,7 @@ feature1.addEventListener("click", () => {
 });
 
 feature2.addEventListener("click", () => {
-    featureDisplay.innerHTML = 
-    `
+  featureDisplay.innerHTML = `
         
             <div class="feature-context">
               <div class="feature-text">
@@ -59,8 +57,7 @@ feature2.addEventListener("click", () => {
 });
 
 feature3.addEventListener("click", () => {
-    featureDisplay.innerHTML = 
-    `
+  featureDisplay.innerHTML = `
         
             <div class="feature-context">
               <div class="feature-text">
@@ -84,8 +81,7 @@ feature3.addEventListener("click", () => {
 });
 
 feature4.addEventListener("click", () => {
-    featureDisplay.innerHTML = 
-    `
+  featureDisplay.innerHTML = `
         
             <div class="feature-context">
               <div class="feature-text">
@@ -109,8 +105,7 @@ feature4.addEventListener("click", () => {
 });
 
 feature5.addEventListener("click", () => {
-    featureDisplay.innerHTML = 
-    `
+  featureDisplay.innerHTML = `
         
             <div class="feature-context">
               <div class="feature-text">
@@ -132,6 +127,5 @@ feature5.addEventListener("click", () => {
          
     `;
 });
-
 
 // Feature Button Functionlity Ends

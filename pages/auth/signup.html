@@ -3,7 +3,126 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Accord | Join us</title>
+    <link rel="stylesheet" href="../../css/signup.css" />
   </head>
-  <body></body>
+
+  <body>
+    <main>
+      <section class="section-with-animation">
+        <div class="bg-content">
+
+          <h1 id="logo" class="logo"><a
+              href="../../index.html">accord.</a></h1>
+
+          <div class="onboarding-info">
+
+            <div>
+              <p id="declare-signup">Start your journey</p>
+              <h1>Turning conversations to ready to be signed contracts</h1>
+              <p>Join thousands of users who are already transforming their
+                workflows with Accord.</p>
+            </div>
+
+            <div class="step-indicator">
+
+              <!-- The user can't skip steps unless details are completed. The user can go back to previous steps to edit details.It should also send modal notifications on top if such attempt of skipping is made-->
+
+              <div id="step1" class="step1">
+                <span>1</span>
+                <p>Personal Info</p>
+              </div>
+
+              <div id="step2" class="step2">
+                <span>2</span>
+                <p>Set preferences</p>
+              </div>
+
+              <!-- Onclicking step 3 - should change writeups giving context to that step. -->
+              <div id="step3" class="step3">
+                <span>3</span>
+                <p>Verify your identity</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <section class="step1-section">
+        <h2>Create an account</h2>
+        <form>
+          <div>
+            <label for="tel">Country</label>
+            <input type="text"
+              placeholder="Only available in Nigeria for now" disabled>
+          </div>
+          <div>
+            <div>
+              <label>Full Name</label>
+              <input type="text" placeholder="Mary Odinaka">
+            </div>
+            <div>
+              <label>Username</label>
+              <input type="text" placeholder="mary001">
+            </div>
+          </div>
+          <div>
+            <label>Password</label>
+            <input type="password" placeholder="Enter a strong password">
+          </div>
+
+        </form>
+        <button type="submit" id="step1-submit">Continue</button>
+        <div>
+          <span>Already have an account? <a href="login.html">Log in</a></span>
+
+          <p>or</p>
+
+          <span>By signing up, I confirm that I have carefuly read and agree to
+            accord's<br><a>Terms of Service and Privacy Policy</a></span>
+        </div>
+      </section>
+
+      <section class="step2-section">
+        <h2>What do you want to use accord for?</h2>
+        <div class="preferences-buttons">
+
+          <button>Just here for the AI</button>
+          <button>For Business</button>
+          <button>For Personal</button>
+          <button>For School work</button>
+
+        </div>
+
+        <button type="submit">Continue</button>
+      </section>
+
+      <section class="step3-section">
+        <!-- Later, we will use country-specific identity verification to ensure that you are who you say you are. This is to protect your account and your data. -->
+
+        <h2>Please provide your <span class="country-ID">NIN</span>
+          number</h2>
+
+        <form>
+          <div>
+            <label for="nin">NIN number</label>
+            <input type="text" placeholder="Enter your NIN">
+          </div>
+          <div>
+            <label for="location">Location</label>
+            <input type="text" placeholder="Whre are you currently located?">
+          </div>
+        </form>
+        <button type="submit">Continue</button>
+      </section>
+
+      <section class="load-screen">
+        <!-- The text gets filled with several shades of purple over the h1 text (logo) to give the impression of loading. The text should be centered and the background should be a gradient of purple and blue. The text should be large and bold. The text should be animated to give the impression of loading. The text should be a gradient of purple and blue. The text should retain its size but over the whole screen, the backgrouund blurs and the logo shines with the animated feeling. The text should be animated to give the impression of loading. -->
+        <div>
+          <h1 id="logo" class="logo">accord.</h1>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>

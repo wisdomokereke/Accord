@@ -1,0 +1,541 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Aileron";
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("../assets/fonts/Aileron-BoldItalic.woff2") format("woff2"),
+    url("../assets/fonts/Aileron-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("../assets/fonts/Aileron-Heavy.woff2") format("woff2"),
+    url("../assets/fonts/Aileron-Heavy.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("../assets/fonts/Aileron-HeavyItalic.woff2") format("woff2"),
+    url("../assets/fonts/Aileron-HeavyItalic.woff") format("woff");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("../assets/fonts/Aileron-Italic.woff2") format("woff2"),
+    url("../assets/fonts/Aileron-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("../assets/fonts/Aileron-Light.woff2") format("woff2"),
+    url("../assets/fonts/Aileron-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("../assets/fonts/Aileron-LightItalic.woff2") format("woff2"),
+    url("../assets/fonts/Aileron-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("../assets/fonts/Aileron-Regular.woff2") format("woff2"),
+    url("../assets/fonts/Aileron-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("../assets/fonts/Aileron-SemiBold.woff2") format("woff2"),
+    url("../assets/fonts/Aileron-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("../assets/fonts/Aileron-SemiBoldItalic.woff2") format("woff2"),
+    url("../assets/fonts/Aileron-SemiBoldItalic.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("../assets/fonts/Aileron-Thin.woff2") format("woff2"),
+    url("../assets/fonts/Aileron-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("../assets/fonts/Aileron-ThinItalic.woff2") format("woff2"),
+    url("../assets/fonts/Aileron-ThinItalic.woff") format("woff");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("../assets/fonts/Aileron-UltraLight.woff2") format("woff2"),
+    url("../assets/fonts/Aileron-UltraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("Aileron-UltraLightItalic.woff2") format("woff2"),
+    url("Aileron-UltraLightItalic.woff") format("woff");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("../assets/fonts/Aileron-Black.woff2") format("woff2"),
+    url("../assets/fonts/Aileron-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("../assets/fonts/Aileron-BlackItalic.woff2") format("woff2"),
+    url("../assets/fonts/Aileron-BlackItalic.woff") format("woff");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src:
+    url("../assets/fonts/Aileron-Bold.woff2") format("woff2"),
+    url("../assets/fonts/Aileron-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+svg {
+  height: 24px;
+  width: 24px;
+  color: var(--lavender-veil);
+}
+
+svg:hover {
+  background-color: var(--hyper-magenta);
+  padding: 4px;
+  border-radius: 100%;
+}
+
+:root {
+  /* =========================================================
+     1. SPACING
+     Base unit: 4px
+     Range: 0px - 72px
+     ========================================================= */
+
+  --space-0: 0;
+  --space-1: 0.25rem; /* 4px */
+  --space-2: 0.5rem; /* 8px */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem; /* 16px */
+  --space-5: 1.25rem; /* 20px */
+  --space-6: 1.5rem; /* 24px */
+  --space-7: 1.75rem; /* 28px */
+  --space-8: 2rem; /* 32px */
+  --space-9: 2.25rem; /* 36px */
+  --space-10: 2.5rem; /* 40px */
+  --space-11: 2.75rem; /* 44px */
+  --space-12: 3rem; /* 48px */
+  --space-13: 3.25rem; /* 52px */
+  --space-14: 3.5rem; /* 56px */
+  --space-15: 3.75rem; /* 60px */
+  --space-16: 4rem; /* 64px */
+  --space-17: 4.25rem; /* 68px */
+  --space-18: 4.5rem; /* 72px */
+
+  /* =========================================================
+     2. TYPOGRAPHY
+     ========================================================= */
+
+  /* -------------------------
+     Display / Large headings
+     ------------------------- */
+
+  --text-display: clamp(4rem, 8vw, 13.4375rem); /* 64px → 215px */
+
+  --text-h1: 6rem; /* 96px */
+  --text-h2: 4.5rem; /* 72px */
+  --text-h3: 3.5rem; /* 56px */
+  --text-h4: 2.5rem; /* 40px */
+  --text-h5: 2rem; /* 32px */
+  --text-h6: 1.5rem; /* 24px */
+
+  /* -------------------------
+     Responsive large headings
+     Use these when headings
+     need to scale with viewport
+     ------------------------- */
+
+  --text-h1-fluid: clamp(2rem, 5vw, 7rem);
+  --text-h2-fluid: clamp(2.5rem, 5vw, 4.5rem);
+  --text-h3-fluid: clamp(2rem, 4vw, 3.5rem);
+  --text-h4-fluid: clamp(1.75rem, 3vw, 2.5rem);
+
+  /* -------------------------
+     Body
+     ------------------------- */
+
+  --text-body-lg: 1.125rem; /* 18px */
+  --text-body: 1rem; /* 16px */
+  --text-body-sm: 0.875rem; /* 14px */
+
+  /* Caption */
+  --text-caption: 0.75rem; /* 12px */
+
+  /* =========================================================
+     3. BRAND COLORS
+     ========================================================= */
+
+  --lavender-veil: #f4e0fe;
+  --dark-amethyst: #14012d;
+  --thistle: #e8d1fd;
+  --hyper-magenta: #a43efe;
+  --electric-royal: #0b128f;
+
+  /* =========================================================
+     4. NEUTRALS
+     These support the brand colors.
+     ========================================================= */
+
+  --white: #ffffff;
+  --black: #000000;
+
+  --neutral-50: #fcfafd;
+  --neutral-100: #f7f3fa;
+  --neutral-200: #eee8f2;
+  --neutral-300: #ddd4e3;
+  --neutral-400: #b9afc0;
+  --neutral-500: #918697;
+  --neutral-600: #6e6375;
+  --neutral-700: #4c414f;
+  --neutral-800: #302634;
+  --neutral-900: #1b1420;
+
+  /* =========================================================
+     5. BACKGROUNDS
+     ========================================================= */
+
+  --bg-primary: #ffffff;
+  --bg-secondary: var(--neutral-50);
+  --bg-tertiary: var(--lavender-veil);
+
+  --bg-brand: var(--dark-amethyst);
+  --bg-brand-soft: var(--lavender-veil);
+
+  --bg-interactive: var(--hyper-magenta);
+  --bg-interactive-hover: #8f2be5;
+  --bg-interactive-active: #781fc5;
+
+  --bg-accent: var(--electric-royal);
+
+  /* =========================================================
+     6. SURFACES
+     ========================================================= */
+
+  --surface-primary: #ffffff;
+  --surface-secondary: #fcfafd;
+  --surface-tertiary: #f4e0fe;
+
+  --surface-raised: #ffffff;
+  --surface-overlay: rgba(20, 1, 45, 0.04);
+
+  --surface-brand: var(--dark-amethyst);
+  --surface-brand-soft: var(--lavender-veil);
+
+  /* =========================================================
+     7. TEXT
+     ========================================================= */
+
+  --text-primary: var(--dark-amethyst);
+  --text-secondary: #4c414f;
+  --text-tertiary: #6e6375;
+  --text-muted: #918697;
+
+  --text-disabled: #b9afc0;
+
+  --text-inverse: #ffffff;
+
+  --text-brand: var(--hyper-magenta);
+  --text-accent: var(--electric-royal);
+}
+
+main {
+  height: 100dvh;
+}
+
+.logo {
+  color: var(--dark-amethyst);
+  letter-spacing: -9%;
+  filter: drop-shadow(0px 1px 1px var(--lavender-veil));
+}
+
+.logo a:link {
+  color: var(--dark-amethyst);
+  text-decoration: none;
+}
+
+.logo a:visited {
+  color: var(--dark-amethyst);
+  text-decoration: none;
+}
+
+/* Declare Statements */
+#declare-login {
+  /* Dynamic layout sizing */
+  display: inline-block; /* Allows padding to apply properly without taking full width */
+  padding: 6px 10px;
+  border-radius: 100px;
+
+  /* iOS Frosted Glass UI Effect */
+  background-color: rgba(255, 255, 255, 0.12); /* Subtle white highlight Tint */
+  backdrop-filter: blur(
+    12px
+  ); /* Blurs the swarming background shapes beneath it */
+  -webkit-backdrop-filter: blur(12px); /* Safari support */
+
+  /* Text aesthetics */
+  color: #f4e0fe; /* Kept your light lavender color */
+  font-size: 0.85rem; /* Slightly smaller badge-style typography */
+  font-weight: 600; /* Apple style semi-bold weight */
+  letter-spacing: -0.01em; /* Tight iOS letter-spacing tracking */
+
+  /* Subtle boundary definition */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+#declare-cta {
+}
+#declare-description {
+}
+.onboarding-info > div {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: var(--lavender-veil);
+}
+/* 1. Main Grid Framework */
+
+.login-container {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  background-color: var(--lavender-veil);
+  padding: 16px;
+}
+
+/* 2. Target Section 1: The Swarming Ocean Engine */
+.section-with-animation {
+  border-radius: 16px;
+  position: relative; /* Context anchor for the color layers */
+  overflow: hidden; /* Keeps the moving fluid elements contained inside this half */
+  background-color: #14012d; /* #14012d - Base deep dark purple */
+}
+
+/* Fluid Pseudo-Layers Engine */
+.section-with-animation::before,
+.section-with-animation::after {
+  content: "";
+  position: absolute;
+  width: 180%;
+  height: 180%;
+  top: -40%;
+  left: -40%;
+  opacity: 0.9;
+  filter: blur(60px); /* Softly blends your exact hex tones */
+  z-index: 1;
+}
+
+/* Swarm Layer A: Mid-tones and Pastels */
+.section-with-animation::before {
+  background:
+    radial-gradient(circle at 25% 25%, #a43efe 0%, transparent 45%),
+    /* #a43efe */
+    radial-gradient(circle at 75% 30%, #f4e0fe 0%, transparent 40%),
+    /* #f4e0fe */
+    radial-gradient(circle at 35% 70%, #a074d7 0%, transparent 45%); /* #A074D7 */
+  animation: cleanSwarmOne 7s ease-in-out infinite alternate;
+}
+
+/* Swarm Layer B: Deep Blues, Lavenders, and Indigo Purples */
+.section-with-animation::after {
+  background:
+    radial-gradient(circle at 70% 70%, #0b128f 0%, transparent 50%),
+    /* #0b128f */
+    radial-gradient(circle at 20% 75%, #e8d1fd 0%, transparent 40%),
+    /* #e8d1fd */
+    radial-gradient(circle at 60% 40%, #a06fd3 0%, transparent 45%); /* #a06fd3 */
+  animation: cleanSwarmTwo 8s ease-in-out infinite alternate;
+}
+
+/* 3. Safe Text Content Container Over the Swarm */
+.section1 {
+  position: relative;
+  z-index: 2; /* Forces copy, text, and headings over the canvas */
+  display: flex;
+  gap: 400px;
+  flex-direction: column;
+  align-content: space-around;
+  height: 100%;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+/* 4. Right Panel Form Layout */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 60px;
+  color: var(--dark-amethyst);
+  margin-top: 25%;
+}
+
+.login-form > h2 {
+  text-align: center;
+}
+.login-form > p {
+  text-align: center;
+}
+.login-form > p > a {
+  text-decoration: underline;
+}
+form {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+
+form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#username,
+#password {
+  background-color: white;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+#submit-btn {
+  background-color: var(--bg-interactive-hover);
+  border: none;
+  border-radius: 10px;
+  padding: 16px;
+  color: white;
+  font-size: var(--text-body);
+  font-weight: bold;
+}
+
+#submit-btn:hover {
+  background-color: var(--bg-interactive-active);
+}
+
+/* 5. Loading and Responsive Breakpoints */
+.load-screen {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .section-with-animation {
+    display: none;
+  }
+
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* 6. Liquid Movement Timelines */
+@keyframes cleanSwarmOne {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
+  }
+  33% {
+    transform: translate(12%, 10%) rotate(30deg) scale(1.15);
+  }
+  66% {
+    transform: translate(-10%, -8%) rotate(-45deg) scale(0.9);
+  }
+  100% {
+    transform: translate(6%, -12%) rotate(60deg) scale(1.1);
+  }
+}
+
+@keyframes cleanSwarmTwo {
+  0% {
+    transform: translate(0px, 0px) rotate(90deg) scale(1.1);
+  }
+  50% {
+    transform: translate(-14%, 12%) rotate(-30deg) scale(0.85);
+  }
+  100% {
+    transform: translate(12%, -10%) rotate(120deg) scale(1.15);
+  }
+}
