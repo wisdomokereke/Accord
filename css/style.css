@@ -372,6 +372,7 @@ button a {
   padding: 8px 16px;
   border-radius: 4px;
   cursor: pointer;
+  color: var(--lavender-veil);
 }
 
 .btn-cta a {
@@ -396,11 +397,12 @@ main {
   color: var(--hyper-magenta);
   letter-spacing: -9%;
 }
+                                                                                       
 /* Hero Section */
 .hero-container {
   display: flex;
   justify-content: space-between;
-  padding: 52px 0px;
+  padding: 62px 0px;
 }
 
 .hero-text {

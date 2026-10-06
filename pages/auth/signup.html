@@ -67,19 +67,24 @@
               <input type="text" placeholder="mary001">
             </div>
           </div>
-          <div>
-            <label>Password</label>
-            <input type="password" placeholder="Enter a strong password">
+            
+            <div>
+              <label>Password</label>
+              <input type="password" id="password"
+                placeholder="Enter a strong password"
+                autocomplete="new-password"></div>
           </div>
 
         </form>
         <button type="submit" id="step1-submit">Continue</button>
         <div>
-          <span>Already have an account? <a href="login.html">Log in</a></span>
+          <span>Already have an account? <a href="login.html">Log
+              in</a></span>
 
           <p>or</p>
 
-          <span>By signing up, I confirm that I have carefuly read and agree to
+          <span>By signing up, I confirm that I have carefuly read and agree
+            to
             accord's<br><a>Terms of Service and Privacy Policy</a></span>
         </div>
       </section>
@@ -124,5 +129,11 @@
         </div>
       </section>
     </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../js/config.js"></script>
+    <script src="../../js/supabase.js"></script>
+    <script src="../../js/signup.js"></script>
   </body>
 </html>
