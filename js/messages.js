@@ -1,10 +1,10 @@
-/* ============================================================
+/* 
    ACCORD — MESSAGES
-   ============================================================ */
+    */
 
-/* ============================================================
+/* 
    GLOBAL STATE
-   ============================================================ */
+    */
 
 let currentUser = null;
 let currentProfile = null;
@@ -19,9 +19,9 @@ let conversationSubscription = null;
 let searchTimeout = null;
 let toastTimeout = null;
 
-/* ============================================================
+/* 
    DOM ELEMENTS
-   ============================================================ */
+    */
 
 const dealRooms = document.getElementById("deal-rooms");
 
@@ -102,9 +102,9 @@ const notification = document.getElementById("notification");
 
 const notificationMessage = document.getElementById("notification-message");
 
-/* ============================================================
+/* 
    INITIALIZATION
-   ============================================================ */
+    */
 
 document.addEventListener("DOMContentLoaded", initializeMessages);
 
@@ -144,9 +144,9 @@ async function initializeMessages() {
   }
 }
 
-/* ============================================================
+/* 
    PROFILE
-   ============================================================ */
+    */
 
 async function loadCurrentProfile() {
   const { data, error } = await supabaseClient
@@ -179,9 +179,9 @@ async function loadCurrentProfile() {
   populateSettings();
 }
 
-/* ============================================================
+/* 
    SETTINGS
-   ============================================================ */
+    */
 
 function populateSettings() {
   if (!currentProfile) return;
@@ -218,9 +218,9 @@ function formatPreference(preference) {
   return labels[preference] || preference;
 }
 
-/* ============================================================
+/* 
    EVENT LISTENERS
-   ============================================================ */
+    */
 
 function setupEventListeners() {
   /* Existing conversation search */
@@ -288,9 +288,9 @@ function setupEventListeners() {
   });
 }
 
-/* ============================================================
+/* 
    LOAD CONVERSATIONS
-   ============================================================ */
+    */
 
 async function loadConversations() {
   conversationList.innerHTML = "";
@@ -409,9 +409,9 @@ async function loadConversations() {
   renderConversations(conversations);
 }
 
-/* ============================================================
+/* 
    RENDER CONVERSATIONS
-   ============================================================ */
+    */
 
 function renderConversations(list) {
   conversationList.innerHTML = "";
@@ -479,9 +479,9 @@ function renderConversations(list) {
   });
 }
 
-/* ============================================================
+/* 
    EMPTY CONVERSATIONS
-   ============================================================ */
+    */
 
 function renderConversationEmpty(customMessage = null) {
   conversationList.innerHTML = "";
@@ -499,9 +499,9 @@ function renderConversationEmpty(customMessage = null) {
   conversationList.appendChild(conversationEmpty);
 }
 
-/* ============================================================
+/* 
    LOCAL SEARCH
-   ============================================================ */
+    */
 
 function handleLocalSearch(event) {
   const query = event.target.value.trim().toLowerCase();
@@ -556,9 +556,9 @@ function handleLocalSearch(event) {
   renderConversations(filtered);
 }
 
-/* ============================================================
+/* 
    OPEN CONVERSATION
-   ============================================================ */
+    */
 
 async function openConversation(conversation) {
   currentConversation = conversation;
@@ -630,9 +630,9 @@ async function openConversation(conversation) {
   messageInput.focus();
 }
 
-/* ============================================================
+/* 
    LOAD MESSAGES
-   ============================================================ */
+    */
 
 async function loadMessages(conversationId) {
   messagesList.innerHTML = "";
@@ -674,9 +674,9 @@ async function loadMessages(conversationId) {
   scrollMessagesToBottom();
 }
 
-/* ============================================================
+/* 
    RENDER MESSAGES
-   ============================================================ */
+    */
 
 function renderMessages(messages) {
   messagesList.innerHTML = "";
@@ -698,9 +698,9 @@ function renderMessages(messages) {
   });
 }
 
-/* ============================================================
+/* 
    APPEND MESSAGE
-   ============================================================ */
+    */
 
 function appendMessage(message, scroll = true) {
   const empty = messagesList.querySelector(".messages-start");
@@ -720,9 +720,9 @@ function appendMessage(message, scroll = true) {
   // ...rest of the function
 }
 
-/* ============================================================
+/* 
    SEND MESSAGE
-   ============================================================ */
+    */
 
 async function handleSendMessage(event) {
   event.preventDefault();
@@ -793,9 +793,9 @@ async function handleSendMessage(event) {
   await loadConversations();
 }
 
-/* ============================================================
+/* 
    MESSAGE KEYBOARD
-   ============================================================ */
+    */
 
 function handleMessageKeydown(event) {
   /*
@@ -810,9 +810,9 @@ function handleMessageKeydown(event) {
   }
 }
 
-/* ============================================================
+/* 
    REALTIME
-   ============================================================ */
+    */
 
 function setupRealtime() {
   /*
@@ -881,9 +881,9 @@ function subscribeToMessages(conversationId) {
     .subscribe();
 }
 
-/* ============================================================
+/* 
    GLOBAL USERNAME SEARCH
-   ============================================================ */
+    */
 
 function openGlobalSearch() {
   globalSearchModal.classList.remove("hidden");
@@ -916,9 +916,9 @@ function resetGlobalSearch() {
     "Search for a username to find someone.";
 }
 
-/* ============================================================
+/* 
    GLOBAL USERNAME SEARCH
-   ============================================================ */
+    */
 
 function handleGlobalUsernameSearch(event) {
   const query = event.target.value.trim().toLowerCase();
@@ -1020,9 +1020,9 @@ function showSearchEmpty(message) {
   }
 }
 
-/* ============================================================
+/* 
    START CONVERSATION
-   ============================================================ */
+    */
 
 async function startConversationWith(profile) {
   /*
@@ -1036,24 +1036,39 @@ async function startConversationWith(profile) {
 
   if (existing) {
     closeGlobalSearch();
-
     await openConversation(existing);
-
     return;
   }
 
   /*
-    We need to create a new conversation.
+    Ask the database to create the Deal Room.
+
+    The PostgreSQL function:
+    - checks that we are logged in
+    - prevents conversations with yourself
+    - checks that the other user exists
+    - checks for an existing Deal Room
+    - creates the conversation if needed
+    - adds both users as members
   */
 
-  const { data: conversation, error: conversationError } = await supabaseClient
-    .from("conversations")
-    .insert({})
-    .select()
-    .single();
+  const { data: conversationId, error } = await supabaseClient.rpc(
+    "create_deal_room",
+    {
+      other_user_id: profile.id,
+    },
+  );
 
-  if (conversationError) {
-    console.error("Conversation creation error:", conversationError);
+  if (error) {
+    console.error("Conversation creation error:", error);
+
+    showNotification(error.message || "Could not create the conversation.");
+
+    return;
+  }
+
+  if (!conversationId) {
+    console.error("No conversation ID returned from create_deal_room.");
 
     showNotification("Could not create the conversation.");
 
@@ -1061,105 +1076,55 @@ async function startConversationWith(profile) {
   }
 
   /*
-    Add current user to conversation.
-  */
-
-  const { error: ownMembershipError } = await supabaseClient
-    .from("conversation_members")
-    .insert({
-      conversation_id: conversation.id,
-
-      user_id: currentUser.id,
-    });
-
-  if (ownMembershipError) {
-    console.error("Own membership error:", ownMembershipError);
-
-    /*
-      Clean up conversation if membership
-      could not be created.
-    */
-
-    await supabaseClient
-      .from("conversations")
-      .delete()
-      .eq("id", conversation.id);
-
-    showNotification("Could not create the conversation.");
-
-    return;
-  }
-
-  /*
-    IMPORTANT:
-    Your current RLS policy only allows a user
-    to insert their OWN membership:
-
-      with check (user_id = auth.uid())
-
-    Therefore the browser cannot currently add
-    the other person here.
-
-    We show the correct message rather than
-    pretending the conversation was created.
-  */
-
-  const { error: partnerMembershipError } = await supabaseClient
-    .from("conversation_members")
-    .insert({
-      conversation_id: conversation.id,
-
-      user_id: profile.id,
-    });
-
-  if (partnerMembershipError) {
-    console.warn("Partner membership blocked by RLS:", partnerMembershipError);
-
-    /*
-      Remove the temporary conversation.
-    */
-
-    await supabaseClient
-      .from("conversation_members")
-      .delete()
-      .eq("conversation_id", conversation.id)
-      .eq("user_id", currentUser.id);
-
-    await supabaseClient
-      .from("conversations")
-      .delete()
-      .eq("id", conversation.id);
-
-    closeGlobalSearch();
-
-    showNotification(
-      "Username found. We still need to enable creating shared Deal Rooms.",
-    );
-
-    return;
-  }
-
-  /*
-    If the RLS policy has been updated,
-    the conversation will be available immediately.
+    The Deal Room has now been created
+    by the database function.
   */
 
   closeGlobalSearch();
 
+  /*
+    Reload the user's conversations so the
+    new Deal Room appears in the inbox.
+  */
+
   await loadConversations();
 
+  /*
+    Find the newly-created Deal Room.
+  */
+
   const createdConversation = conversations.find(
-    (conversationItem) => conversationItem.id === conversation.id,
+    (conversation) => conversation.id === conversationId,
   );
 
   if (createdConversation) {
     await openConversation(createdConversation);
+    return;
   }
+
+  /*
+    If realtime/loading takes a moment,
+    give the list a short second attempt.
+  */
+
+  showNotification("Deal Room created. Refreshing conversations...");
+
+  setTimeout(async () => {
+    await loadConversations();
+
+    const refreshedConversation = conversations.find(
+      (conversation) => conversation.id === conversationId,
+    );
+
+    if (refreshedConversation) {
+      await openConversation(refreshedConversation);
+    }
+  }, 500);
 }
 
-/* ============================================================
+/* 
    SETTINGS
-   ============================================================ */
+    */
 
 function openSettings() {
   setActiveNav("settings");
@@ -1181,9 +1146,9 @@ function setActiveNav(active) {
   navSettings.classList.toggle("active", active === "settings");
 }
 
-/* ============================================================
+/* 
    LOGOUT
-   ============================================================ */
+    */
 
 function openLogoutModal() {
   logoutModal.classList.remove("hidden");
@@ -1219,9 +1184,9 @@ async function logout() {
   window.location.href = "html/auth/login.html";
 }
 
-/* ============================================================
+/* 
    ONLINE STATUS
-   ============================================================ */
+    */
 
 function setOnlineStatus(online) {
   onlineIndicator.classList.toggle("online", online);
@@ -1229,9 +1194,9 @@ function setOnlineStatus(online) {
   chatStatus.textContent = online ? "Online" : "Offline";
 }
 
-/* ============================================================
+/* 
    HELPERS
-   ============================================================ */
+    */
 
 function getInitial(username) {
   if (!username) {
@@ -1294,9 +1259,9 @@ function scrollMessagesToBottom() {
   });
 }
 
-/* ============================================================
+/* 
    NOTIFICATIONS
-   ============================================================ */
+    */
 
 function showNotification(message) {
   if (!notification) {
@@ -1314,9 +1279,9 @@ function showNotification(message) {
   }, 3500);
 }
 
-/* ============================================================
+/* 
    AUTH STATE LISTENER
-   ============================================================ */
+    */
 
 supabaseClient.auth.onAuthStateChange((event, session) => {
   if (event === "SIGNED_OUT") {
