@@ -397,14 +397,31 @@ main {
   color: var(--hyper-magenta);
   letter-spacing: -9%;
 }
-                                                                                       
+
 /* Hero Section */
 .hero-container {
   display: flex;
   justify-content: space-between;
   padding: 62px 0px;
 }
+@media screen and (max-width: 700px) {
+  .hero-text > h1 {
+    line-height: 105%;
+    text-align: center;
+  }
 
+  .hero-text > p {
+    text-align: center;
+  }
+
+  .hero-container {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    flex: 2;
+    align-items: center;
+  }
+}
 .hero-text {
   display: flex;
   flex-direction: column;

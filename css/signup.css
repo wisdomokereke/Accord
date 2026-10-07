@@ -180,11 +180,7 @@ svg:hover {
 }
 
 :root {
-  /* =========================================================
-     1. SPACING
-     Base unit: 4px
-     Range: 0px - 72px
-     ========================================================= */
+  /*   1. SPACING Base unit: 4px Range: 0px - 72px   */
 
   --space-0: 0;
   --space-1: 0.25rem; /* 4px */
@@ -206,13 +202,9 @@ svg:hover {
   --space-17: 4.25rem; /* 68px */
   --space-18: 4.5rem; /* 72px */
 
-  /* =========================================================
-     2. TYPOGRAPHY
-     ========================================================= */
+  /*   2. TYPOGRAPHY   */
 
-  /* -------------------------
-     Display / Large headings
-     ------------------------- */
+  /*  Display / Large headings  */
 
   --text-display: clamp(4rem, 8vw, 13.4375rem); /* 64px → 215px */
 
@@ -223,20 +215,14 @@ svg:hover {
   --text-h5: 2rem; /* 32px */
   --text-h6: 1.5rem; /* 24px */
 
-  /* -------------------------
-     Responsive large headings
-     Use these when headings
-     need to scale with viewport
-     ------------------------- */
+  /*  Responsive large headings Use these when headings need to scale with viewport  */
 
   --text-h1-fluid: clamp(2rem, 5vw, 7rem);
   --text-h2-fluid: clamp(2.5rem, 5vw, 4.5rem);
   --text-h3-fluid: clamp(2rem, 4vw, 3.5rem);
   --text-h4-fluid: clamp(1.75rem, 3vw, 2.5rem);
 
-  /* -------------------------
-     Body
-     ------------------------- */
+  /*  Body  */
 
   --text-body-lg: 1.125rem; /* 18px */
   --text-body: 1rem; /* 16px */
@@ -245,9 +231,7 @@ svg:hover {
   /* Caption */
   --text-caption: 0.75rem; /* 12px */
 
-  /* =========================================================
-     3. BRAND COLORS
-     ========================================================= */
+  /*  3. BRAND COLORS    */
 
   --lavender-veil: #f4e0fe;
   --dark-amethyst: #14012d;
@@ -255,10 +239,7 @@ svg:hover {
   --hyper-magenta: #a43efe;
   --electric-royal: #0b128f;
 
-  /* =========================================================
-     4. NEUTRALS
-     These support the brand colors.
-     ========================================================= */
+  /*   4. NEUTRALS These support the brand colors.   */
 
   --white: #ffffff;
   --black: #000000;
@@ -274,9 +255,7 @@ svg:hover {
   --neutral-800: #302634;
   --neutral-900: #1b1420;
 
-  /* =========================================================
-     5. BACKGROUNDS
-     ========================================================= */
+  /*   5. BACKGROUNDS   */
 
   --bg-primary: #ffffff;
   --bg-secondary: var(--neutral-50);
@@ -291,9 +270,7 @@ svg:hover {
 
   --bg-accent: var(--electric-royal);
 
-  /* =========================================================
-     6. SURFACES
-     ========================================================= */
+  /*   6. SURFACES   */
 
   --surface-primary: #ffffff;
   --surface-secondary: #fcfafd;
@@ -305,9 +282,7 @@ svg:hover {
   --surface-brand: var(--dark-amethyst);
   --surface-brand-soft: var(--lavender-veil);
 
-  /* =========================================================
-     7. TEXT
-     ========================================================= */
+  /*   7. TEXT   */
 
   --text-primary: var(--dark-amethyst);
   --text-secondary: #4c414f;
@@ -322,16 +297,25 @@ svg:hover {
   --text-accent: var(--electric-royal);
 }
 
-/* 2. Target Section 1: The Swarming Ocean Engine */
-
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+main {
+  height: 100dvh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  padding: 16px;
+  background-color: var(--lavender-veil);
+} /*   2. LEFT SIDE — SWARMING OCEAN ENGINE   */
 .section-with-animation {
   border-radius: 16px;
-  position: relative; /* Context anchor for the color layers */
-  overflow: hidden; /* Keeps the moving fluid elements contained inside this half */
-  background-color: #14012d; /* #14012d - Base deep dark purple */
-}
-
-/* Fluid Pseudo-Layers Engine */
+  position: relative;
+  overflow: hidden;
+  background-color: #14012d;
+} /* Fluid pseudo-layers */
 .section-with-animation::before,
 .section-with-animation::after {
   content: "";
@@ -341,32 +325,23 @@ svg:hover {
   top: -40%;
   left: -40%;
   opacity: 0.9;
-  filter: blur(60px); /* Softly blends your exact hex tones */
+  filter: blur(60px);
   z-index: 1;
-}
-
-/* Swarm Layer A: Mid-tones and Pastels */
+} /* Swarm Layer A */
 .section-with-animation::before {
   background:
     radial-gradient(circle at 25% 25%, #a43efe 0%, transparent 45%),
-    /* #a43efe */
     radial-gradient(circle at 75% 30%, #f4e0fe 0%, transparent 40%),
-    /* #f4e0fe */
-    radial-gradient(circle at 35% 70%, #a074d7 0%, transparent 45%); /* #A074D7 */
+    radial-gradient(circle at 35% 70%, #a074d7 0%, transparent 45%);
   animation: cleanSwarmOne 7s ease-in-out infinite alternate;
-}
-
-/* Swarm Layer B: Deep Blues, Lavenders, and Indigo Purples */
+} /* Swarm Layer B */
 .section-with-animation::after {
   background:
     radial-gradient(circle at 70% 70%, #0b128f 0%, transparent 50%),
-    /* #0b128f */
     radial-gradient(circle at 20% 75%, #e8d1fd 0%, transparent 40%),
-    /* #e8d1fd */
-    radial-gradient(circle at 60% 40%, #a06fd3 0%, transparent 45%); /* #a06fd3 */
+    radial-gradient(circle at 60% 40%, #a06fd3 0%, transparent 45%);
   animation: cleanSwarmTwo 8s ease-in-out infinite alternate;
-}
-/* 6. Liquid Movement Timelines */
+} /*   3. LIQUID MOVEMENT   */
 @keyframes cleanSwarmOne {
   0% {
     transform: translate(0px, 0px) rotate(0deg) scale(1);
@@ -381,7 +356,6 @@ svg:hover {
     transform: translate(6%, -12%) rotate(60deg) scale(1.1);
   }
 }
-
 @keyframes cleanSwarmTwo {
   0% {
     transform: translate(0px, 0px) rotate(90deg) scale(1.1);
@@ -392,94 +366,94 @@ svg:hover {
   100% {
     transform: translate(12%, -10%) rotate(120deg) scale(1.15);
   }
-}
-
+} /*   4. LOGO   */
 .logo {
   color: var(--dark-amethyst);
   letter-spacing: -9%;
   filter: drop-shadow(0px 1px 1px var(--lavender-veil));
 }
-
-.logo a:visited {
-  color: var(--dark-amethyst);
-  text-decoration: none;
-}
-
+.logo a:visited,
 .logo a:link {
   color: var(--dark-amethyst);
   text-decoration: none;
-}
-
-.load-screen,
-.step2-section,
-.step3-section {
-  display: none;
-}
-main {
-  height: 100dvh;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  padding: 16px;
-  background-color: var(--lavender-veil);
-}
+} /*   5. LEFT CONTENT   */
 .bg-content {
   display: flex;
   flex-direction: column;
-  gap: 270px;
+  gap: 200px;
   padding: 40px;
   z-index: 2;
   position: relative;
 }
-
-@media screen and (max-width: 768px) {
-  .section-with-animation {
-    display: none;
-  }
-
-  .step1-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-/* Declare Statements */
-#declare-signup {
-  /* Dynamic layout sizing */
-  display: inline-block; /* Allows padding to apply properly without taking full width */
-  padding: 6px 10px;
-  border-radius: 100px;
-
-  /* iOS Frosted Glass UI Effect */
-  background-color: rgba(255, 255, 255, 0.12); /* Subtle white highlight Tint */
-  backdrop-filter: blur(
-    12px
-  ); /* Blurs the swarming background shapes beneath it */
-  -webkit-backdrop-filter: blur(12px); /* Safari support */
-
-  /* Text aesthetics */
-  color: #f4e0fe; /* Kept your light lavender color */
-  font-size: 0.85rem; /* Slightly smaller badge-style typography */
-  font-weight: 600; /* Apple style semi-bold weight */
-  letter-spacing: -0.01em; /* Tight iOS letter-spacing tracking */
-
-  /* Subtle boundary definition */
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-#declare-cta {
-}
-#declare-description {
-}
-
 .onboarding-info {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 12px;
   color: var(--lavender-veil);
 }
 
+/*  6. DECLARATION / INTRO  */
+#declare-signup {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 100px;
+  background-color: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #f4e0fe;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+#declare-cta {
+  margin-bottom: 12px;
+}
+#declare-description {
+  max-width: 560px;
+  line-height: 1.5;
+} /*   7. STEP NOTIFICATION   */
+.step-notification {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  max-width: 620px;
+  padding: 6px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background-color: rgba(20, 1, 45, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: var(--lavender-veil);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  animation: notificationIn 180ms ease-out;
+}
+.step-notification.show {
+  display: flex;
+}
+#notification-close {
+  border: none;
+  background: transparent;
+  color: var(--lavender-veil);
+  font-size: 12px;
+  cursor: pointer;
+  padding: 2px 4px;
+}
+@keyframes notificationIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*   8. STEP INDICATOR   */
 .step-indicator {
   display: flex;
   gap: 16px;
@@ -488,19 +462,13 @@ main {
 #step1,
 #step2,
 #step3 {
-  background-color: rgba(255, 255, 255, 0.12); /* Subtle white highlight Tint */
-  backdrop-filter: blur(
-    12px
-  ); /* Blurs the swarming background shapes beneath it */
-  -webkit-backdrop-filter: blur(12px); /* Safari support */
-
-  /* Text aesthetics */
-  color: #f4e0fe; /* Kept your light lavender color */
-  font-size: 0.85rem; /* Slightly smaller badge-style typography */
-  font-weight: 600; /* Apple style semi-bold weight */
-  letter-spacing: -0.01em; /* Tight iOS letter-spacing tracking */
-
-  /* Subtle boundary definition */
+  background-color: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #f4e0fe;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   border: 1px solid rgba(255, 255, 255, 0.15);
   display: flex;
   flex-direction: column;
@@ -509,95 +477,203 @@ main {
   border-radius: 8px;
   flex: 2;
   flex-wrap: wrap;
-}
-
-#step1 {
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+} /* Active step */
+#step1.active,
+#step2.active,
+#step3.active {
   background-color: var(--lavender-veil);
   color: var(--dark-amethyst);
 }
+
+/* Completed steps */
+#step1.completed,
+#step2.completed {
+  background-color: rgba(244, 224, 254, 0.85);
+  color: var(--dark-amethyst);
+}
+
+/* Hover */
+#step1:hover,
 #step2:hover,
 #step3:hover {
+  transform: translateY(-2px);
+}
+
+#step1.active,
+#step2.active,
+#step3.active {
   background-color: var(--lavender-veil);
   color: var(--dark-amethyst);
 }
 
-/* Section 2 / Screen 1 Styling */
-.step1-section {
+/*   9. RIGHT SIDE — SHARED STEP STYLING   */
+.step1-section,
+.step2-section,
+.step3-section {
   padding: 40px;
   color: var(--dark-amethyst);
-}
-
+  flex-direction: column;
+  gap: 16px;
+} /* Initial visibility */
 .step1-section {
   display: flex;
-  flex-direction: column;
-  margin-top: 20%;
-  gap: 16px;
+  justify-content: center;
 }
-
-/* form Stylings */
-.step1-section h2 {
+.step2-section,
+.step3-section {
+  display: none;
+} /*   10. STEP HEADINGS   */
+.step1-section h2,
+.step2-section h2,
+.step3-section h2 {
   text-align: center;
-}
-
-.step1-section > div {
-  text-align: center;
-  display: flex;
-  gap: 8px;
-  flex-direction: column;
-}
-
-.step1-section > div > span {
-  font-size: 0.8rem;
-}
-
-.step1-section > div > span > a {
-  text-decoration: underline;
-  cursor: pointer;
-}
-form {
+} /*   11. FORMS   */
+.step1-section form,
+.step3-section form {
   padding-top: 20px;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-
-form > div {
+.step1-section form > div,
+.step3-section form > div {
   display: flex;
   flex-direction: column;
   gap: 4px;
-}
-
-form div:nth-child(2) {
+} /* Step 1 email / username row */
+.account-details-row {
   display: flex;
+  flex-direction: row !important;
   gap: 8px;
-  flex-direction: row;
 }
-
-form div:nth-child(2) div {
+.account-details-row > div {
   display: flex;
   flex-direction: column;
-  flex: wrap;
   flex: 1;
   gap: 4px;
-}
-
+} /*   12. INPUTS   */
 input {
+  width: 100%;
   background-color: white;
-  border: none;
-  padding: 8px 6px;
+  border: 1px solid transparent;
+  padding: 10px 8px;
   border-radius: 6px;
+  color: var(--dark-amethyst);
+  outline: none;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+input:focus {
+  border-color: var(--hyper-magenta);
+  box-shadow: 0 0 0 3px rgba(164, 62, 254, 0.12);
 }
 input:disabled {
   background-color: var(--neutral-100);
   color: var(--neutral-400);
+  cursor: not-allowed;
+} /*   13. SIGNUP FOOTER   */
+.signup-footer {
+  text-align: center;
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
 }
-
-#step1-submit {
+.signup-footer span {
+  font-size: 0.8rem;
+}
+.signup-footer a {
+  text-decoration: underline;
+  cursor: pointer;
+} /*   14. STEP BUTTONS   */
+#step1-submit,
+#step2-submit,
+#step3-submit {
   border: none;
   background-color: var(--bg-interactive-hover);
-  padding: 16px 0px;
+  padding: 16px 0;
   border-radius: 8px;
   font-size: 16px;
   font-weight: bold;
   color: var(--lavender-veil);
+  cursor: pointer;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+#step1-submit:hover,
+#step2-submit:hover,
+#step3-submit:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+} /*   15. STEP 2 — PREFERENCES   */
+.step2-section {
+  justify-content: center;
+}
+.preferences-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding-top: 20px;
+}
+.preference-btn {
+  border: 1px solid var(--thistle);
+  background-color: white;
+  color: var(--dark-amethyst);
+  padding: 18px 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+.preference-btn:hover {
+  background-color: var(--lavender-veil);
+  border-color: var(--hyper-magenta);
+  transform: translateY(-2px);
+}
+.preference-btn.selected {
+  background-color: var(--dark-amethyst);
+  color: var(--lavender-veil);
+  border-color: var(--dark-amethyst);
+} /*   16. STEP 3 — VERIFICATION   */
+.step3-section {
+  justify-content: center;
+}
+.step3-section form {
+  width: 100%;
+} /*   17. LOADING SCREEN   */
+.load-screen {
+  display: none;
+} /*   18. MOBILE   */
+@media screen and (max-width: 768px) {
+  main {
+    display: block;
+    padding: 0;
+  }
+  .section-with-animation {
+    display: none;
+  }
+  .step1-section,
+  .step2-section,
+  .step3-section {
+    min-height: 100dvh;
+    padding: 24px;
+    justify-content: center;
+  }
+  .account-details-row {
+    flex-direction: column !important;
+  }
+  .preferences-buttons {
+    grid-template-columns: 1fr;
+  }
 }

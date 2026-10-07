@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Accord | Messages</title>
+
+        <link rel="stylesheet" href="css/messages.css" />
+    </head>
+
+    <body>
+
+        <main class="app-shell">
+
+            <!-- =========================================================
+         LEFT SIDEBAR
+         ========================================================= -->
+            <aside class="sidebar">
+
+                <div class="sidebar-top">
+
+                    <!-- Brand -->
+                    <a href="index.html" class="brand">
+                        accord.
+                    </a>
+
+                    <!-- Main Navigation -->
+                    <nav class="main-nav" aria-label="Main navigation">
+
+                        <!-- Messages -->
+                        <button
+                            class="nav-item active"
+                            id="nav-messages"
+                            type="button"
+                            title="Messages">
+                            <svg
+                                class="nav-icon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                aria-hidden="true">
+                                <path
+                                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7A8.38 8.38 0 0 1 4 11.5 8.5 8.5 0 0 1 8.7 3.9a8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z" />
+                            </svg>
+
+                            <span>Messages</span>
+                        </button>
+
+                        <!-- Settings -->
+                        <button
+                            class="nav-item"
+                            id="nav-settings"
+                            type="button"
+                            title="Settings">
+                            <svg
+                                class="nav-icon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                aria-hidden="true">
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path
+                                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6h.01A1.65 1.65 0 0 0 10 3.09V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9v.01A1.65 1.65 0 0 0 20.91 10H21a2 2 0 1 1 0 4h-.09A1.65 1.65 0 0 0 19.4 15Z"></path>
+                            </svg>
+
+                            <span>Settings</span>
+                        </button>
+
+                    </nav>
+
+                </div>
+
+                <!-- Logout -->
+                <button
+                    class="nav-item logout-item"
+                    id="logout-btn"
+                    type="button"
+                    title="Log out">
+                    <svg
+                        class="nav-icon"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true">
+                        <path
+                            d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+
+                    <span>Logout</span>
+                </button>
+
+            </aside>
+
+            <!-- =========================================================
+         DEAL ROOMS / CONVERSATION LIST
+         ========================================================= -->
+            <section class="deal-rooms" id="deal-rooms">
+
+                <header class="deal-rooms-header">
+
+                    <div class="deal-rooms-title-row">
+
+                        <div>
+                            <p class="eyebrow">Your conversations</p>
+                            <h1>Deal Rooms</h1>
+                        </div>
+
+                        <!-- Global username search -->
+                        <button
+                            class="new-conversation-btn"
+                            id="new-conversation-btn"
+                            type="button"
+                            title="Find someone"
+                            aria-label="Find someone">
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                aria-hidden="true">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+
+                    </div>
+
+                    <!-- Search existing conversations -->
+                    <div class="conversation-search">
+
+                        <svg
+                            class="search-icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true">
+                            <circle cx="11" cy="11" r="7"></circle>
+                            <line x1="20" y1="20" x2="16.65" y2="16.65"></line>
+                        </svg>
+
+                        <input
+                            type="search"
+                            id="local-search"
+                            placeholder="Search conversations..."
+                            autocomplete="off" />
+
+                    </div>
+
+                </header>
+
+                <!-- =======================================================
+           CONVERSATION LIST
+           ======================================================= -->
+                <div
+                    class="conversation-list"
+                    id="conversation-list"
+                    aria-label="Conversations">
+
+                    <!--
+          Conversations will be inserted here by messages.js.
+
+          Example structure:
+
+          <button class="conversation-item">
+            <div class="avatar">M</div>
+
+            <div class="conversation-info">
+              <div class="conversation-top">
+                <strong>@marydoe001</strong>
+                <span>10:42 AM</span>
+              </div>
+
+              <p>Hey, are we still...</p>
+            </div>
+          </button>
+        -->
+
+                    <!-- Empty state shown when there are no conversations -->
+                    <div
+                        class="conversation-empty"
+                        id="conversation-empty">
+
+                        <div class="empty-icon">
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.7"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                aria-hidden="true">
+                                <path
+                                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7A8.38 8.38 0 0 1 4 11.5 8.5 8.5 0 0 1 8.7 3.9a8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z" />
+                            </svg>
+                        </div>
+
+                        <h2>No conversations yet</h2>
+
+                        <p>
+                            Find someone by their username to start a
+                            conversation.
+                        </p>
+
+                        <button
+                            type="button"
+                            class="empty-action"
+                            id="empty-find-user-btn">
+                            Find someone
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- =========================================================
+         MAIN CONVERSATION ROOM
+         ========================================================= -->
+            <section class="conversation-room" id="conversation-room">
+
+                <!-- =======================================================
+           EMPTY CHAT STATE
+           ======================================================= -->
+                <div
+                    class="chat-empty"
+                    id="chat-empty">
+
+                    <div class="chat-empty-mark">
+                        <span>accord.</span>
+                    </div>
+
+                    <h2>Select a conversation</h2>
+
+                    <p>
+                        Choose a Deal Room from the left to continue a
+                        conversation.
+                    </p>
+
+                </div>
+
+                <!-- =======================================================
+           ACTIVE CHAT
+           Hidden until a conversation is selected
+           ======================================================= -->
+                <div
+                    class="active-chat hidden"
+                    id="active-chat">
+
+                    <!-- =====================================================
+             CHAT HEADER
+             ===================================================== -->
+                    <header class="chat-header">
+
+                        <div class="chat-user">
+
+                            <div
+                                class="chat-avatar"
+                                id="chat-avatar"
+                                aria-hidden="true">
+                                ?
+                            </div>
+
+                            <div class="chat-user-info">
+
+                                <h2 id="chat-username">
+                                    @username
+                                </h2>
+
+                                <div class="chat-status">
+
+                                    <span
+                                        class="online-indicator"
+                                        id="online-indicator"></span>
+
+                                    <span id="chat-status">
+                                        Offline
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </header>
+
+                    <!-- =====================================================
+             MESSAGE AREA
+             ===================================================== -->
+                    <div
+                        class="messages-container"
+                        id="messages-container">
+
+                        <div
+                            class="messages-list"
+                            id="messages-list"
+                            aria-live="polite">
+
+                            <!--
+              Messages will be inserted here by messages.js.
+
+              Example incoming message:
+
+              <div class="message-row incoming">
+                <div class="message-bubble">
+                  <p>Hello!</p>
+                  <span>10:42 AM</span>
+                </div>
+              </div>
+
+              Example outgoing message:
+
+              <div class="message-row outgoing">
+                <div class="message-bubble">
+                  <p>Hey, how are you?</p>
+                  <span>10:43 AM</span>
+                </div>
+              -->
+
+                        </div>
+
+                    </div>
+
+                    <!-- =====================================================
+             MESSAGE COMPOSER
+             ===================================================== -->
+                    <form
+                        class="message-composer"
+                        id="message-form">
+
+                        <div class="message-input-wrapper">
+
+                            <input
+                                type="text"
+                                id="message-input"
+                                name="message"
+                                placeholder="Write a message..."
+                                autocomplete="off"
+                                maxlength="5000"
+                                disabled />
+
+                        </div>
+
+                        <button
+                            type="submit"
+                            id="send-message"
+                            class="send-message-btn"
+                            aria-label="Send message"
+                            title="Send message"
+                            disabled>
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                aria-hidden="true">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon
+                                    points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- ===========================================================
+       GLOBAL USERNAME SEARCH MODAL
+       =========================================================== -->
+        <div
+            class="modal-overlay hidden"
+            id="global-search-modal"
+            aria-hidden="true">
+
+            <section
+                class="search-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="global-search-title">
+
+                <header class="search-modal-header">
+
+                    <div>
+                        <p class="eyebrow">Start a conversation</p>
+
+                        <h2 id="global-search-title">
+                            Find someone
+                        </h2>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="modal-close-btn"
+                        id="global-search-close"
+                        aria-label="Close">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+
+                </header>
+
+                <!-- Username search -->
+                <div class="global-search-wrapper">
+
+                    <svg
+                        class="search-icon"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true">
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <line x1="20" y1="20" x2="16.65" y2="16.65"></line>
+                    </svg>
+
+                    <input
+                        type="search"
+                        id="global-username-input"
+                        placeholder="Search by username..."
+                        autocomplete="off" />
+
+                </div>
+
+                <!-- Search results -->
+                <div
+                    class="global-search-results"
+                    id="global-search-results">
+
+                    <div class="search-results-empty" id="search-results-empty">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true">
+                            <circle cx="11" cy="11" r="7"></circle>
+                            <line x1="20" y1="20" x2="16.65" y2="16.65"></line>
+                        </svg>
+
+                        <p>
+                            Search for a username to find someone.
+                        </p>
+
+                    </div>
+
+                    <!--
+          Search results will be inserted here.
+
+          Example:
+
+          <button class="user-result">
+            <div class="avatar">J</div>
+
+            <div>
+              <strong>@johnsmith</strong>
+              <span>John Smith</span>
+            </div>
+          </button>
+        -->
+
+                </div>
+
+            </section>
+
+        </div>
+
+        <!-- ===========================================================
+       SETTINGS PANEL
+       =========================================================== -->
+        <div
+            class="modal-overlay hidden"
+            id="settings-modal"
+            aria-hidden="true">
+
+            <section
+                class="settings-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="settings-title">
+
+                <header class="settings-header">
+
+                    <div>
+                        <p class="eyebrow">Account</p>
+
+                        <h2 id="settings-title">
+                            Settings
+                        </h2>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="modal-close-btn"
+                        id="settings-close"
+                        aria-label="Close settings">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+
+                </header>
+
+                <div class="settings-content">
+
+                    <!-- Profile -->
+                    <div class="settings-profile">
+
+                        <div
+                            class="settings-avatar"
+                            id="settings-avatar">
+                            ?
+                        </div>
+
+                        <div>
+                            <h3 id="settings-username">
+                                @username
+                            </h3>
+
+                            <p id="settings-email">
+                                Account
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <!-- Settings options -->
+                    <div class="settings-options">
+
+                        <div class="settings-option">
+
+                            <div>
+                                <strong>Username</strong>
+                                <span id="settings-username-value">
+                                    @username
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <div class="settings-option">
+
+                            <div>
+                                <strong>Preference</strong>
+                                <span id="settings-preference">
+                                    —
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <div class="settings-option">
+
+                            <div>
+                                <strong>Location</strong>
+                                <span id="settings-location">
+                                    —
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+        <!-- ===========================================================
+       LOGOUT CONFIRMATION
+       =========================================================== -->
+        <div
+            class="modal-overlay hidden"
+            id="logout-modal"
+            aria-hidden="true">
+
+            <section
+                class="confirmation-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="logout-title">
+
+                <div class="confirmation-icon">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true">
+                        <path
+                            d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+
+                </div>
+
+                <h2 id="logout-title">
+                    Log out of Accord?
+                </h2>
+
+                <p>
+                    You'll need to log in again to access your Deal Rooms.
+                </p>
+
+                <div class="confirmation-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-btn"
+                        id="logout-cancel">
+                        Cancel
+                    </button>
+
+                    <button
+                        type="button"
+                        class="danger-btn"
+                        id="logout-confirm">
+                        Log out
+                    </button>
+
+                </div>
+
+            </section>
+
+        </div>
+
+        <!-- ===========================================================
+       NOTIFICATION
+       =========================================================== -->
+        <div
+            class="toast"
+            id="notification"
+            role="status"
+            aria-live="polite">
+            <span id="notification-message"></span>
+        </div>
+
+        <!-- ===========================================================
+       SUPABASE
+       =========================================================== -->
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+        <!--
+    If messages.html is in the project root, these paths are correct.
+  -->
+        <script src="js/config.js"></script>
+        <script src="js/supabase.js"></script>
+        <script src="js/messages.js"></script>
+
+    </body>
+</html>

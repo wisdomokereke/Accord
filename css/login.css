@@ -433,7 +433,7 @@ main {
   position: relative;
   z-index: 2; /* Forces copy, text, and headings over the canvas */
   display: flex;
-  gap: 400px;
+  gap: 340px;
   flex-direction: column;
   align-content: space-around;
   height: 100%;

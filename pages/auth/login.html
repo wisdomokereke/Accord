@@ -1,88 +1,129 @@
-<!-- vNzFRM3Hbeszqhwo -->
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <title>Accord | Ready to draft a contract?</title>
+
         <link rel="stylesheet" href="../../css/login.css">
+        <link rel="icon" type="image/svg+xml"
+            href="../../assets/images/favicon.svg">
     </head>
+
     <body>
 
         <main class="login-container">
+
+            <!-- LEFT SIDE -->
             <section class="section-with-animation">
+
                 <div class="section1">
-                    <h1 id="logo" class="logo"><a
-                            href="../../index.html">accord.</a></h1>
+
+                    <h1 id="logo" class="logo">
+                        <a href="../../index.html">accord.</a>
+                    </h1>
+
                     <div class="onboarding-info">
 
                         <div>
+
                             <div>
                                 <p id="declare-login">Login</p>
                             </div>
-                            <h1 id="declare-cta">Continue from where you left
-                                off</h1>
-                            <p id="declare-description">Join thousands of users
-                                who are already
-                                transforming
-                                their
-                                workflows with Accord.</p>
+
+                            <h1 id="declare-cta">
+                                Continue from where you left off
+                            </h1>
+
+                            <p id="declare-description">
+                                Join thousands of users who are already
+                                transforming their workflows with Accord.
+                            </p>
+
                         </div>
 
                     </div>
+
                 </div>
 
             </section>
 
+            <!-- RIGHT SIDE -->
             <section class="login-form">
+
                 <h2>Login to your account</h2>
-                <form>
+
+                <form id="login-form">
+
                     <div>
-                        <label for="username">Username</label>
-                        <input type="text" id="username"
-                            placeholder="Enter your username">
-                    </div>
-                    <div>
-                        <label for="username">Email</label>
+                        <label for="username">
+                            Username
+                        </label>
+
                         <input
-                            type="email"
+                            type="text"
                             id="username"
-                            placeholder="Enter your email"
-                            autocomplete="email">
+                            name="username"
+                            placeholder="Enter your username"
+                            autocomplete="username"
+                            required>
                     </div>
+
                     <div>
-                        <label for="password">Password</label>
-                        <input type="password" id="password"
-                            placeholder="Enter your password">
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required>
                     </div>
+
+                    <button
+                        id="submit-btn"
+                        type="submit">
+                        Log in
+                    </button>
 
                 </form>
-                <button id="submit-btn" type="submit">Log in</button>
-                <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+
+                <p>
+                    Don't have an account?
+                    <a href="signup.html">Sign up</a>
+                </p>
+
             </section>
 
-            <section class="load-screen">
+            <!-- LOADING SCREEN -->
+            <section class="load-screen" id="load-screen">
 
-                The text gets filled with
-                several shades of
-                purple over the h1 text (logo) to give the impression of
-                loading. The text should be centered and the background should
-                be a gradient of purple and blue. The text should be large and
-                bold. The text should be animated to give the impression of
-                loading. The text should be a gradient of purple and blue. The
-                text should retain its size but over the whole screen, the
-                backgrouund blurs and the logo shines with the animated feeling.
-                The text should be animated to give the impression of loading.
                 <div>
-                    <h1 id="logo" class="logo">accord.</h1>
+                    <h1 class="logo loading-logo">
+                        accord.
+                    </h1>
                 </div>
+
             </section>
+
         </main>
 
+        <!-- SUPABASE -->
         <script
             src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+        <!-- ACCORD CONFIG -->
         <script src="../../js/config.js"></script>
         <script src="../../js/supabase.js"></script>
+
+        <!-- LOGIN LOGIC -->
         <script src="../../js/login.js"></script>
+
     </body>
+
 </html>
