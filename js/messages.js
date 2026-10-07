@@ -703,21 +703,69 @@ function renderMessages(messages) {
     */
 
 function appendMessage(message, scroll = true) {
+  // Remove the empty-state message if it exists
   const empty = messagesList.querySelector(".messages-start");
 
   if (empty) {
     empty.remove();
   }
 
-  const row = document.createElement("div");
+  // Prevent the same message from being rendered twice
+  if (
+    message.id &&
+    messagesList.querySelector(`[data-message-id="${message.id}"]`)
+  ) {
+    return;
+  }
 
+  // Determine whether this message belongs to the current user
   const outgoing = message.sender_id === currentUser.id;
+
+  // Message row
+  const row = document.createElement("div");
 
   row.className = `message-row ${outgoing ? "outgoing" : "incoming"}`;
 
   row.dataset.messageId = message.id;
 
-  // ...rest of the function
+  // Message bubble
+  const bubble = document.createElement("div");
+
+  bubble.className = "message-bubble";
+
+  // Message text
+  const text = document.createElement("p");
+
+  text.textContent = message.content;
+
+  // Message time
+  const time = document.createElement("span");
+
+  time.className = "message-time";
+
+  if (message.created_at) {
+    const date = new Date(message.created_at);
+
+    time.textContent = date.toLocaleTimeString([], {
+      hour: "numeric",
+      minute: "2-digit",
+    });
+  }
+
+  // Build the message
+  bubble.appendChild(text);
+  bubble.appendChild(time);
+
+  row.appendChild(bubble);
+
+  // Add message to conversation
+  messagesList.appendChild(row);
+
+  // Scroll to newest message
+  if (scroll) {
+    messagesList.parentElement.scrollTop =
+      messagesList.parentElement.scrollHeight;
+  }
 }
 
 /* 

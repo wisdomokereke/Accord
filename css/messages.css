@@ -1719,3 +1719,52 @@ input {
     padding: 10px;
   }
 }
+
+/* over write*/
+.message-row {
+  width: 100%;
+  display: flex;
+}
+
+.message-row.incoming {
+  justify-content: flex-start;
+}
+
+.message-row.outgoing {
+  justify-content: flex-end;
+}
+
+.message-bubble {
+  max-width: min(68%, 560px);
+  padding: 10px 13px 7px;
+  border-radius: 15px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.message-row.incoming .message-bubble {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top-left-radius: 5px;
+  color: var(--dark-amethyst);
+}
+
+.message-row.outgoing .message-bubble {
+  background: var(--dark-amethyst);
+  color: var(--white);
+  border-top-right-radius: 5px;
+}
+
+.message-bubble p {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.message-time {
+  display: block;
+  margin-top: 4px;
+  font-size: 9px;
+  opacity: 0.52;
+  text-align: right;
+}
