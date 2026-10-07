@@ -1,11 +1,11 @@
-// Import the Supabase client from the CDN.
-const { createClient } = supabase;
+// Get the Supabase client from the CDN.
+const { createClient } = window.supabase;
 
 // Your Supabase project URL.
-const SUPABASE_URL = "https://jyjkhwgqldfamuqfysap.supabase.co";
+const SUPABASE_URL = "https://hferjedaeuyztarmpixu.supabase.co";
 
-// Your browser-safe publishable/anon key.
-const SUPABASE_KEY = "sb_publishable_1uooGaflu3YFVNyhXc331A_umAVkrHM";
+// Your browser-safe publishable key.
+const SUPABASE_KEY = "sb_publishable_eCQMD2xWLwzVp49TSg4sQQ_kkurpceQ";
 
 // Create the Supabase client.
 const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
