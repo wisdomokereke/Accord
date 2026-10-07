@@ -649,3 +649,8 @@ footer > div > div {
   display: flex;
   gap: 16px;
 }
+
+.step-section,
+.testimonials-section {
+  display: none;
+}
